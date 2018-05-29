@@ -9,13 +9,15 @@ import {AppComponent} from './app.component';
 // /** 注册语言包 ** /
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import {AppRoutingModule} from './app-routing.module';
+import {AppRoutingModule} from './app-routing.module;
+import {AppBreadcrumbComponent} from './component/app-breadcrumb/app-breadcrumb.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
-    AppComponent
+    Ap,
+    AppBreadcrumbComponentpComponent
   ],
   imports: [
     BrowserModule,
