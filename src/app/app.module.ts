@@ -9,6 +9,7 @@ import {AppComponent} from './app.component';
 // /** 注册语言包 ** /
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import {AppRoutingModule} from './app-routing.module';
 
 registerLocaleData(zh);
 
@@ -21,7 +22,8 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule.forRoot()
+    NgZorroAntdModule.forRoot(),
+    AppRoutingModule,
   ],
   bootstrap: [AppComponent]
 })
