@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  loading = true;
+
+  antButtonClick(event) {
+    this.loading = !this.loading;
+    console.log(event);
+  }
 }
+
