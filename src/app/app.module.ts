@@ -11,6 +11,8 @@ import {AppComponent} from './app.component';
 import {AppBreadcrumbComponent} from './component/app-breadcrumb/app-breadcrumb.component';
 import {AppMenuInlineComponent} from './component/app-menu-inline/app-menu-inline.component';
 import {AppListComponent} from './component/app-list/app-list.component';
+import { NesAppDropDownComponent } from './component/nes-app-drop-down/nes-app-drop-down.component';
+import { NesIndexComponent } from './component/nes-index/nes-index.component';
 
 registerLocaleData(zh);
 
@@ -19,7 +21,9 @@ registerLocaleData(zh);
     AppComponent,
     AppBreadcrumbComponent,
     AppMenuInlineComponent,
-    AppListComponent
+    AppListComponent,
+    NesAppDropDownComponent,
+    NesIndexComponent
   ],
   imports: [
     BrowserModule,
