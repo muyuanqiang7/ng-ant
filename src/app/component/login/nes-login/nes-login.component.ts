@@ -30,7 +30,7 @@ export class NesLoginComponent implements OnInit {
     console.log(this.validateForm.value);
     console.log(this.validateForm.status);
     if (this.validateForm.status === 'VALID') {
-      this.auth.changLogginStatus();
+      this.auth.changLoggingStatus();
       this.router.navigate(['emcs']);
     }
   }
