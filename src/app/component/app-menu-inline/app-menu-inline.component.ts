@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,14 +6,14 @@ import {Router} from '@angular/router';
   templateUrl: './app-menu-inline.component.html',
   styleUrls: ['./app-menu-inline.component.css']
 })
-export class AppMenuInlineComponent implements OnInit {
+export class AppMenuInlineComponent implements OnInit, AfterViewInit {
 
   isCollapsed = false;
   nzClick = new EventEmitter();
   menu = [{
     name: '用户管理',
     class: 'anticon anticon-user',
-    children: [{name: '用户管理', url: '/app'}, {name: '角色管理', url: '/index'}, {name: '权限管理', url: '/dashboard'}]
+    children: [{name: '用户管理', url: '/app'}, {name: '角色管理', url: '/index'}, {name: '权限管理', url: '/steps'}]
   }, {
     name: '系统参数设置',
     class: 'anticon anticon-laptop',
@@ -34,6 +34,8 @@ export class AppMenuInlineComponent implements OnInit {
     this.nzClick.subscribe((item: any) => console.log(item));
   }
 
+  ngAfterViewInit(): void {
+  }
 
   toggleCollapsed() {
     this.isCollapsed = !this.isCollapsed;
@@ -41,8 +43,7 @@ export class AppMenuInlineComponent implements OnInit {
 
   nzItemDirect(item) {
     // typeof add
-    this.nzClick.emit('bitch');
-    console.log(item);
+    this.nzClick.emit('bitch click');
   }
 
 
@@ -56,7 +57,7 @@ export class AppMenuInlineComponent implements OnInit {
     if (!item.url.startsWith('/')) {
       item.url = '/' + item.url;
     }
-    this.router.navigate([item.url]);
+    this.router.navigate(['/emcs' + item.url]);
 
   }
 }

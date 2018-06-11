@@ -1,3 +1,30 @@
-<p>
-  nes-index works!
-</p>
+<div nz-row>
+  <div nz-col nzSpan="6">
+    <nz-tag [nzColor]="'#f50'">#f50</nz-tag>
+  </div>
+  <div nz-col nzSpan="6">
+    <nz-tag [nzColor]="'#2db7f5'">#2db7f5</nz-tag>
+  </div>
+  <div nz-col nzSpan="6">
+    <nz-tag [nzColor]="'#87d068'">#87d068</nz-tag>
+  </div>
+  <div nz-col nzSpan="6">
+    <nz-tag [nzColor]="'#108ee9'">#108ee9</nz-tag>
+  </div>
+</div>
+<div>
+  <!--可以自定义添加函数参数-->
+  <nz-tag [nzColor]="'#f50'" class="custom-tag" nzMode='default' (nzOnClose)="nzClose($event, false)"
+          (nzAfterClose)="nzAfterClose()">权
+  </nz-tag>
+  <nz-tag [nzColor]="'#2db7f5'" class="custom-tag">售</nz-tag>
+  <nz-tag [nzColor]="'#87d068'" class="custom-tag">抵</nz-tag>
+  <nz-tag [nzColor]="'#108ee9'" class="custom-tag">封</nz-tag>
+</div>
+<!--<div>-->
+<!--<ng-container *ngFor="let item of data">-->
+<!--<nz-tag [nzColor]="item.color" class="custom-tag" nzMode='closeable' (nzOnClose)="nzClose($event, item.data)"-->
+<!--(nzAfterClose)="nzAfterClose()">{{item.label}}-->
+<!--</nz-tag>-->
+<!--</ng-container>-->
+<!--</div>-->

@@ -1,0 +1,23 @@
+<nz-steps [nzCurrent]="count">
+  <nz-step nzTitle="下单" (click)="nzStepClick($event)"></nz-step>
+  <nz-step nzTitle="后台确认"></nz-step>
+  <nz-step nzTitle="付款"></nz-step>
+  <nz-step nzTitle="发货"></nz-step>
+  <ng-template #iconTemplate><i class="anticon anticon-smile-o"></i></ng-template>
+</nz-steps>
+<div class="steps-content">{{ index }}</div>
+<div nz-row>
+  <div nz-col nzSpan="4" nzOffset="10">
+    <button nz-button [nzType]="'primary'" (click)="previousStep()" [disabled]="count ==-1">上一步</button>
+    <button nz-button [nzType]="'primary'" (click)="nextStep()" [disabled]="count ==3">下一步</button>
+  </div>
+</div>
+<button nz-button [nzType]="'primary'" (click)="createBasicNotification()"
+        [disabled]="permissionCheck.canAccess('dashboard')">Open the notification box
+</button>
+
+<div ngDraggable class="drag">
+  <button nz-button [nzType]="'primary'" (click)="createBasicNotification()" class="vertical-center-modal"
+          [disabled]="!permissionCheck.canAccess('dashboard')">Open the notification box
+  </button>
+</div>

@@ -3,12 +3,24 @@ import {RouterModule, Routes} from '@angular/router';
 import {NesAppDropDownComponent} from './component/nes-app-drop-down/nes-app-drop-down.component';
 import {AppListComponent} from './component/app-list/app-list.component';
 import {NesIndexComponent} from './component/nes-index/nes-index.component';
+import {NesWorkflwoStepsComponent} from './component/nes-workflwo-steps/nes-workflwo-steps.component';
+import {NesAuthGuardGuard} from './service/routing/nes-auth-guard.guard';
+import {NesLoginComponent} from './component/login/nes-login/nes-login.component';
+import {AppMenuInlineComponent} from './component/app-menu-inline/app-menu-inline.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/app', pathMatch: 'full'},
-  {path: 'app', component: AppListComponent},
-  {path: 'index', component: NesIndexComponent},
-  {path: 'dashboard', component: NesAppDropDownComponent}
+  {path: '', redirectTo: '/emcs', canActivate: [NesAuthGuardGuard], pathMatch: 'full'},
+  {path: 'login', component: NesLoginComponent},
+  {
+    path: 'emcs', canActivate: [NesAuthGuardGuard], component: AppMenuInlineComponent, children: [
+      {path: 'app', canActivate: [NesAuthGuardGuard], component: AppListComponent},
+      {path: 'index', canActivate: [NesAuthGuardGuard], component: NesIndexComponent},
+      {path: 'dashboard', canActivate: [NesAuthGuardGuard], component: NesAppDropDownComponent},
+      {path: 'steps', canActivate: [NesAuthGuardGuard], component: NesWorkflwoStepsComponent},
+    ]
+  },
+  {path: '**', component: AppMenuInlineComponent},
+
 ];
 
 @NgModule({
