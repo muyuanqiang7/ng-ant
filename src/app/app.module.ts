@@ -40,7 +40,7 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule.forRoot(),
+    NgZorroAntdModule,
     AppRoutingModule,
     AngularDraggableModule
   ],

@@ -13,8 +13,10 @@ export class NesAuthService {
     return this.logging;
   }
 
-  changLoggingStatus() {
+  changLoggingStatus(remember: boolean) {
     this.logging = !this.logging;
-    localStorage.setItem('logging', this.logging.toString());
+    if (remember) {
+      localStorage.setItem('logging', this.logging.toString());
+    }
   }
 }

@@ -18,7 +18,7 @@ export class NesLoginComponent implements OnInit {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      remember: [true]
+      remember: [false]
     });
   }
 
@@ -30,7 +30,7 @@ export class NesLoginComponent implements OnInit {
     console.log(this.validateForm.value);
     console.log(this.validateForm.status);
     if (this.validateForm.status === 'VALID') {
-      this.auth.changLoggingStatus();
+      this.auth.changLoggingStatus(this.validateForm.value.remember);
       this.router.navigate(['emcs']);
     }
   }
