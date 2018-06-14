@@ -31,12 +31,12 @@ export class NesWorkflwoStepsComponent implements OnInit {
 
   previousStep() {
     --this.count;
-    this.changaeContent();
+    this.changeContent();
   }
 
   nextStep() {
     ++this.count;
-    this.changaeContent();
+    this.changeContent();
   }
 
   cloneDiv() {
@@ -44,7 +44,7 @@ export class NesWorkflwoStepsComponent implements OnInit {
     this.container.createComponent(factory);
   }
 
-  changaeContent() {
+  changeContent() {
     switch (this.count) {
       case -1:
         this.index = '下单';

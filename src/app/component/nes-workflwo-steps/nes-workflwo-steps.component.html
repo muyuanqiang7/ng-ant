@@ -12,7 +12,7 @@
     <button nz-button [nzType]="'primary'" (click)="nextStep()" [disabled]="count ==3">下一步</button>
   </div>
 </div>
-<button nz-button [nzType]="'primary'" (click)="createBasicNotification()"
+<button nz-button [nzType]="'primary'" (click)="createBasicNotification($event)"
         [disabled]="permissionCheck.canAccess('dashboard')">Open the notification box
 </button>
 
