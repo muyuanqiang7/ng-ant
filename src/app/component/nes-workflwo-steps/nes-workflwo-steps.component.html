@@ -16,8 +16,9 @@
         [disabled]="permissionCheck.canAccess('dashboard')">Open the notification box
 </button>
 
-<div ngDraggable class="drag">
-  <button nz-button [nzType]="'primary'" (click)="createBasicNotification()" class="vertical-center-modal"
-          [disabled]="!permissionCheck.canAccess('dashboard')">Open the notification box
-  </button>
+<button nz-button [nzType]="'primary'" (click)="cloneDiv()" class="vertical-center-modal"
+        [disabled]="!permissionCheck.canAccess('dashboard')">Open the notification box
+</button>
+
+<div #targetDiv ngDraggable class="drag">
 </div>

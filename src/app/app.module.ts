@@ -20,6 +20,7 @@ import {AngularDraggableModule} from 'angular2-draggable';
 import {NesAuthService} from './service/auth/nes-auth.service';
 import {NesAuthGuardGuard} from './service/routing/nes-auth-guard.guard';
 import {NesLoginComponent} from './component/login/nes-login/nes-login.component';
+import {NesButtonComponent} from './component/nes-workflwo-steps/nes-button/nes-button/nes-button.component';
 
 registerLocaleData(zh);
 
@@ -33,7 +34,9 @@ registerLocaleData(zh);
     NesIndexComponent,
     NesWorkflwoStepsComponent,
     NesLoginComponent,
+    NesButtonComponent,
   ],
+  entryComponents: [NesButtonComponent],
   imports: [
     BrowserModule,
     FormsModule,

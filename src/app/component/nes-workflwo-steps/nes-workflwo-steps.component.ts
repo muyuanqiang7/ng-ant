@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {NesNotificationService} from '../../service/nes-notification.service';
 import {NesPermissionCheckService} from '../../service/permission/nes-permission-check.service';
+import {NesButtonComponent} from './nes-button/nes-button/nes-button.component';
 
 @Component({
   selector: 'app-nes-workflwo-steps',
@@ -10,8 +11,11 @@ import {NesPermissionCheckService} from '../../service/permission/nes-permission
 export class NesWorkflwoStepsComponent implements OnInit {
   count = -1;
   index = '下单';
+  // Where to insert the cloned content
+  @ViewChild('targetDiv', {read: ViewContainerRef}) container;
 
-  constructor(private notification: NesNotificationService, public permissionCheck: NesPermissionCheckService) {
+  constructor(private notification: NesNotificationService, public permissionCheck: NesPermissionCheckService,
+              private resolver: ComponentFactoryResolver) {
   }
 
   ngOnInit() {
@@ -21,7 +25,7 @@ export class NesWorkflwoStepsComponent implements OnInit {
     console.log(event);
   }
 
-  createBasicNotification() {
+  createBasicNotification(event) {
     this.notification.showMessage('请检查您的网络连接');
   }
 
@@ -33,6 +37,11 @@ export class NesWorkflwoStepsComponent implements OnInit {
   nextStep() {
     ++this.count;
     this.changaeContent();
+  }
+
+  cloneDiv() {
+    const factory = this.resolver.resolveComponentFactory(NesButtonComponent);
+    this.container.createComponent(factory);
   }
 
   changaeContent() {

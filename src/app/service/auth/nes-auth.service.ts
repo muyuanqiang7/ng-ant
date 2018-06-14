@@ -9,7 +9,6 @@ export class NesAuthService {
   }
 
   isLogging(): boolean {
-    console.log(this.logging);
     return this.logging;
   }
 
