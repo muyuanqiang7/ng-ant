@@ -17,7 +17,7 @@ export class AppMenuInlineComponent implements OnInit, AfterViewInit {
   }, {
     name: '系统参数设置',
     class: 'anticon anticon-laptop',
-    children: [{name: '参数配置', url: '/dashboard'}, {name: '系统日志', url: '/app'}, {name: '系统消息', url: '/dashboard'}]
+    children: [{name: '参数配置', url: '/dataTable'}, {name: '系统日志', url: '/app'}, {name: '系统消息', url: '/dashboard'}]
   }, {
     name: '交易产权与登记',
     class: 'anticon anticon-notification',

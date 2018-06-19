@@ -7,6 +7,7 @@ import {NesWorkflwoStepsComponent} from './component/nes-workflwo-steps/nes-work
 import {NesAuthGuardGuard} from './service/routing/nes-auth-guard.guard';
 import {NesLoginComponent} from './component/login/nes-login/nes-login.component';
 import {AppMenuInlineComponent} from './component/app-menu-inline/app-menu-inline.component';
+import {NesDataTableComponent} from './component/nes-data-table/nes-data-table.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/emcs', canActivate: [NesAuthGuardGuard], pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path: 'index', canActivate: [NesAuthGuardGuard], component: NesIndexComponent},
       {path: 'dashboard', canActivate: [NesAuthGuardGuard], component: NesAppDropDownComponent},
       {path: 'steps', canActivate: [NesAuthGuardGuard], component: NesWorkflwoStepsComponent},
+      {path: 'dataTable', canActivate: [NesAuthGuardGuard], component: NesDataTableComponent},
     ]
   },
   {path: '**', component: AppMenuInlineComponent},
