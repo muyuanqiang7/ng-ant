@@ -13,14 +13,27 @@ export class AppMenuInlineComponent implements OnInit, AfterViewInit {
   menu = [{
     name: '用户管理',
     class: 'anticon anticon-user',
+    open: true,
     children: [{name: '用户管理', url: '/app'}, {name: '角色管理', url: '/index'}, {name: '权限管理', url: '/steps'}]
   }, {
     name: '系统参数设置',
+    open: false,
     class: 'anticon anticon-laptop',
     children: [{name: '参数配置', url: '/dataTable'}, {name: '系统日志', url: '/app'}, {name: '系统消息', url: '/dashboard'}]
   }, {
     name: '交易产权与登记',
+    open: false,
     class: 'anticon anticon-notification',
+    children: [{name: '登记受理', url: '/dashboard'}, {name: '代办件', url: '/app'}, {name: '以办件', url: '/dashboard'}]
+  }, {
+    name: '不动产登记',
+    open: false,
+    class: 'anticon anticon-mail',
+    children: [{name: '登记受理', url: '/dashboard'}, {name: '代办件', url: '/app'}, {name: '以办件', url: '/dashboard'}]
+  }, {
+    name: '网签系统',
+    open: false,
+    class: 'anticon anticon-appstore',
     children: [{name: '登记受理', url: '/dashboard'}, {name: '代办件', url: '/app'}, {name: '以办件', url: '/dashboard'}]
   }];
   add: (x: number, y: number) => number = function (x, y) {
@@ -59,5 +72,16 @@ export class AppMenuInlineComponent implements OnInit, AfterViewInit {
     }
     this.router.navigate(['/emcs' + item.url]);
 
+  }
+
+  openHandler(item: any): void {
+    item.open = !item.open;
+    this.menu.forEach(entry => {
+      if (entry.name !== item.name) {
+        entry.open = false;
+      }
+    });
+    console.log(item);
+    console.log(this.menu);
   }
 }
