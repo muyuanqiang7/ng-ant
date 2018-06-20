@@ -70,7 +70,7 @@ export class AppMenuInlineComponent implements OnInit, AfterViewInit {
     if (!item.url.startsWith('/')) {
       item.url = '/' + item.url;
     }
-    this.router.navigate(['/emcs' + item.url]);
+    this.router.navigate(['/emcs/application' + item.url]);
 
   }
 

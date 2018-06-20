@@ -22,6 +22,7 @@ import {NesAuthGuardGuard} from './service/routing/nes-auth-guard.guard';
 import {NesLoginComponent} from './component/login/nes-login/nes-login.component';
 import {NesButtonComponent} from './component/nes-workflwo-steps/nes-button/nes-button/nes-button.component';
 import { NesDataTableComponent } from './component/nes-data-table/nes-data-table.component';
+import { NesHorizontalMenuComponent } from './component/nes-horizontal-menu/nes-horizontal-menu.component';
 
 registerLocaleData(zh);
 
@@ -37,6 +38,7 @@ registerLocaleData(zh);
     NesLoginComponent,
     NesButtonComponent,
     NesDataTableComponent,
+    NesHorizontalMenuComponent,
   ],
   entryComponents: [NesButtonComponent],
   imports: [

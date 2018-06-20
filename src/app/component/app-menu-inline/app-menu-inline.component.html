@@ -1,52 +1,30 @@
-<nz-layout class="layout">
-  <nz-header>
-    <div class="logo">
-    </div>
-    <!--<ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">-->
-    <!--<li nz-menu-item>nav 1</li>-->
-    <!--<li nz-menu-item>nav 2</li>-->
-    <!--<li nz-menu-item>nav 3</li>-->
-    <!--</ul>-->
-    <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;">
-      <i class="anticon" [class.anticon-menu-unfold]="isCollapsed" [class.anticon-menu-fold]="!isCollapsed">
-      </i>
-    </button>
-  </nz-header>
-  <nz-content style="height: 85vh;">
-    <!--<nz-breadcrumb style="margin:16px 0;">-->
-    <!--<nz-breadcrumb-item>Home</nz-breadcrumb-item>-->
-    <!--<nz-breadcrumb-item>List</nz-breadcrumb-item>-->
-    <!--<nz-breadcrumb-item>App</nz-breadcrumb-item>-->
-    <!--</nz-breadcrumb>-->
-    <nz-layout style="padding:2px 0;background: #fff;">
-      <nz-sider [nzWidth]="200" style="background:#fff">
-        <ul nz-menu [nzMode]="'inline'" (nzClick)="nzItemDirect($event)" [nzInlineCollapsed]="isCollapsed"
-            style="height:100%">
-          <ng-container *ngFor="let item of menu;">
-            <li nz-submenu [nzOpen]="item.open" (nzOpenChange)="openHandler(item)">
+<nz-layout style="padding:2px 0;background: #fff;">
+  <nz-sider [nzWidth]="200" style="background:#fff">
+    <ul nz-menu [nzMode]="'inline'" (nzClick)="nzItemDirect($event)" [nzInlineCollapsed]="isCollapsed"
+        style="height:100%">
+      <ng-container *ngFor="let item of menu;">
+        <li nz-submenu [nzOpen]="item.open" (nzOpenChange)="openHandler(item)">
               <span title>
                 <i class="{{item.class}}"></i>
                 <span>{{item.name}}</span>
               </span>
-              <ng-container *ngIf="item.children && item.children.length > 0">
-                <ul>
-                  <ng-container *ngFor="let childItem of item.children">
-                    <li nz-menu-item (click)="nzItemClick(childItem)">
-                      {{childItem.name}}
-                    </li>
-                  </ng-container>
-                </ul>
+          <ng-container *ngIf="item.children && item.children.length > 0">
+            <ul>
+              <ng-container *ngFor="let childItem of item.children">
+                <li nz-menu-item (click)="nzItemClick(childItem)">
+                  {{childItem.name}}
+                </li>
               </ng-container>
-
-            </li>
+            </ul>
           </ng-container>
 
-        </ul>
-      </nz-sider>
-      <nz-content style="padding: 0 24px; min-height: 83vh;">
-        <router-outlet></router-outlet>
-      </nz-content>
-    </nz-layout>
-    <nz-footer style="text-align: center;">Ant Design ©2017 Implement By Angular</nz-footer>
+        </li>
+      </ng-container>
+
+    </ul>
+  </nz-sider>
+  <nz-content style="padding: 0 24px; min-height: 79vh;">
+    <router-outlet></router-outlet>
   </nz-content>
 </nz-layout>
+
