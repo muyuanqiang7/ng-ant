@@ -23,10 +23,6 @@ export class NesLoginComponent implements OnInit {
   }
 
   submitForm(): void {
-    // for (const i of this.validateForm.controls) {
-    //   this.validateForm.controls[i].markAsDirty();
-    //   this.validateForm.controls[i].updateValueAndValidity();
-    // }
     console.log(this.validateForm.value);
     console.log(this.validateForm.status);
     if (this.validateForm.status === 'VALID') {

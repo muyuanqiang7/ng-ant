@@ -2,6 +2,18 @@
   <nz-header>
     <div class="logo">
     </div>
+    <div class="user">
+      <nz-dropdown style="margin-right: 10px" [nzPlacement]="'bottomCenter'" [nzTrigger]="'click'">
+        <a nz-dropdown>
+          管理员 <i class="anticon anticon-down"></i>
+        </a>
+        <ul nz-menu>
+          <li nz-menu-item (click)="logout()">注销</li>
+        </ul>
+      </nz-dropdown>
+      <nz-avatar [nzText]="userInfo.username" nzSize="large"
+                 [ngStyle]="{'background-color':color}" style="vertical-align: middle;"></nz-avatar>
+    </div>
   </nz-header>
   <nz-content style="height: 85vh;">
     <nz-layout style="padding:2px 0;background: #fff;">
