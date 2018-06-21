@@ -6,9 +6,14 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./nes-data-table.component.css']
 })
 export class NesDataTableComponent implements OnInit {
-
   allChecked = false;
   indeterminate = false;
+  showFilter: true;
+  searchAddressList = [];
+  filterNameList = [
+    {text: 'Joe', value: 'Joe'},
+    {text: 'Jim', value: 'Jim'}
+  ];
   displayData = [];
   data = [
     {
@@ -40,6 +45,10 @@ export class NesDataTableComponent implements OnInit {
       disabled: true
     }
   ];
+
+  search(searchNameList: string[], searchAddressList: string[]): void {
+
+  }
 
   currentPageDataChange($event: Array<{ name: string; age: number; address: string; checked: boolean; disabled: boolean; }>): void {
     this.displayData = $event;

@@ -5,19 +5,12 @@
   </nz-header>
   <nz-content style="height: 85vh;">
     <nz-layout style="padding:2px 0;background: #fff;">
-      <ul nz-menu [nzMode]="'horizontal'">
-        <li nz-menu-item (click)="toggle()">
-          <i class="anticon anticon-mail"></i> Navigation One
-        </li>
-        <li nz-menu-item>
-          <i class="anticon anticon-appstore"></i> Navigation Two
-        </li>
-        <li nz-submenu>
-          <i class="anticon anticon-setting"></i> Navigation Three - Submenu
-        </li>
-        <li nz-menu-item>
-          <i class="anticon anticon-appstore"></i>Navigation Four - Link
-        </li>
+      <ul nz-menu [nzMode]="'horizontal'" style="padding-left: 30px">
+        <ng-container *ngFor="let item of menu">
+          <li nz-menu-item (click)="toggle(item)">
+            <i class="{{item.class}}"></i> {{item.name}}
+          </li>
+        </ng-container>
       </ul>
       <nz-content style="padding: 0 24px; min-height: 80vh;">
         <router-outlet></router-outlet>

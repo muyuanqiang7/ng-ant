@@ -1,6 +1,16 @@
+<div nz-row style="margin: 4px 0">
+  <div nz-col nzOffset="20">
+    <nz-input-group nzSearch [nzSuffix]="suffixIconButton">
+      <input type="text" #searchText nz-input placeholder="搜索">
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSearch><i class="anticon anticon-search"></i></button>
+    </ng-template>
+  </div>
+</div>
 <nz-table
   #rowSelectionTable
-  [nzData]="data"
+  [nzData]="data | nesMenu: searchText.value"
   (nzCurrentPageDataChange)="currentPageDataChange($event)"
   (nzPageIndexChange)="refreshStatus()"
   (nzPageSizeChange)="refreshStatus()">
@@ -8,7 +18,9 @@
   <tr>
     <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate"
         (nzCheckedChange)="checkAll($event)"></th>
-    <th>Name</th>
+    <th [nzFilters]="filterNameList" [nzShowFilter]="showFilter" (nzFilterChange)="search($event,searchAddressList)">
+      Name
+    </th>
     <th>Age</th>
     <th>Address</th>
   </tr>
@@ -23,3 +35,5 @@
   </tr>
   </tbody>
 </nz-table>
+
+<div [froalaEditor]>Hello, Froala!</div>

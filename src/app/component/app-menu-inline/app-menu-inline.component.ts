@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, EventEmitter, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {NesNotificationService} from '../../service/nes-notification.service';
 
 @Component({
   selector: 'app-app-menu-inline',
@@ -9,7 +10,6 @@ import {Router} from '@angular/router';
 export class AppMenuInlineComponent implements OnInit, AfterViewInit {
 
   isCollapsed = false;
-  nzClick = new EventEmitter();
   menu = [{
     name: '用户管理',
     class: 'anticon anticon-user',
@@ -36,15 +36,29 @@ export class AppMenuInlineComponent implements OnInit, AfterViewInit {
     class: 'anticon anticon-appstore',
     children: [{name: '登记受理', url: '/dashboard'}, {name: '代办件', url: '/app'}, {name: '以办件', url: '/dashboard'}]
   }];
+  parentMenu: any;
   add: (x: number, y: number) => number = function (x, y) {
     return x + y;
   };
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private nesNotification: NesNotificationService, private route: ActivatedRoute) {
+    this.parentMenu = this.route.snapshot.url[0].path;
+    if (this.parentMenu === 'appStore') {
+      this.menu = [{
+        name: '用户管理',
+        class: 'anticon anticon-user',
+        open: true,
+        children: [{name: '用户管理', url: '/app'}, {name: '角色管理', url: '/index'}]
+      }, {
+        name: '系统参数设置',
+        open: false,
+        class: 'anticon anticon-laptop',
+        children: [{name: '参数配置', url: '/dataTable'}, {name: '系统日志', url: '/app'}]
+      }];
+    }
   }
 
   ngOnInit() {
-    this.nzClick.subscribe((item: any) => console.log(item));
   }
 
   ngAfterViewInit(): void {
@@ -55,8 +69,6 @@ export class AppMenuInlineComponent implements OnInit, AfterViewInit {
   }
 
   nzItemDirect(item) {
-    // typeof add
-    this.nzClick.emit('bitch click');
   }
 
 
@@ -70,7 +82,7 @@ export class AppMenuInlineComponent implements OnInit, AfterViewInit {
     if (!item.url.startsWith('/')) {
       item.url = '/' + item.url;
     }
-    this.router.navigate(['/emcs/application' + item.url]);
+    this.router.navigate(['/emcs/' + this.parentMenu + item.url]);
 
   }
 

@@ -21,8 +21,11 @@ import {NesAuthService} from './service/auth/nes-auth.service';
 import {NesAuthGuardGuard} from './service/routing/nes-auth-guard.guard';
 import {NesLoginComponent} from './component/login/nes-login/nes-login.component';
 import {NesButtonComponent} from './component/nes-workflwo-steps/nes-button/nes-button/nes-button.component';
-import { NesDataTableComponent } from './component/nes-data-table/nes-data-table.component';
-import { NesHorizontalMenuComponent } from './component/nes-horizontal-menu/nes-horizontal-menu.component';
+import {NesDataTableComponent} from './component/nes-data-table/nes-data-table.component';
+import {NesHorizontalMenuComponent} from './component/nes-horizontal-menu/nes-horizontal-menu.component';
+import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
+import {NesMenuPipe} from './pipe/nes-menu.pipe';
+import {NesNoticeEmitterService} from './service/emitter/nes-notice-emitter.service';
 
 registerLocaleData(zh);
 
@@ -39,6 +42,7 @@ registerLocaleData(zh);
     NesButtonComponent,
     NesDataTableComponent,
     NesHorizontalMenuComponent,
+    NesMenuPipe,
   ],
   entryComponents: [NesButtonComponent],
   imports: [
@@ -49,9 +53,11 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     NgZorroAntdModule,
     AppRoutingModule,
-    AngularDraggableModule
+    AngularDraggableModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
-  providers: [NesNotificationService, NesPermissionCheckService, NesAuthService, NesAuthGuardGuard],
+  providers: [NesNotificationService, NesPermissionCheckService, NesAuthService, NesAuthGuardGuard, NesNoticeEmitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

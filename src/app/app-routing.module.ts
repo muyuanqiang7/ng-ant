@@ -16,11 +16,18 @@ const routes: Routes = [
   {
     path: 'emcs', canActivate: [NesAuthGuardGuard], component: NesHorizontalMenuComponent, children: [
       {
-        path: 'application', canActivate: [NesAuthGuardGuard], component: AppMenuInlineComponent, children: [
+        path: 'addressList', canActivate: [NesAuthGuardGuard], component: AppMenuInlineComponent, children: [
           {path: 'app', canActivate: [NesAuthGuardGuard], component: AppListComponent},
           {path: 'index', canActivate: [NesAuthGuardGuard], component: NesIndexComponent},
           {path: 'dashboard', canActivate: [NesAuthGuardGuard], component: NesAppDropDownComponent},
           {path: 'steps', canActivate: [NesAuthGuardGuard], component: NesWorkflwoStepsComponent},
+          {path: 'dataTable', canActivate: [NesAuthGuardGuard], component: NesDataTableComponent},
+        ]
+      },
+      {
+        path: 'appStore', canActivate: [NesAuthGuardGuard], component: AppMenuInlineComponent, children: [
+          {path: 'app', canActivate: [NesAuthGuardGuard], component: AppListComponent},
+          {path: 'index', canActivate: [NesAuthGuardGuard], component: NesIndexComponent},
           {path: 'dataTable', canActivate: [NesAuthGuardGuard], component: NesDataTableComponent},
         ]
       },

@@ -2,7 +2,7 @@
   <nz-sider [nzWidth]="200" style="background:#fff">
     <ul nz-menu [nzMode]="'inline'" (nzClick)="nzItemDirect($event)" [nzInlineCollapsed]="isCollapsed"
         style="height:100%">
-      <ng-container *ngFor="let item of menu;">
+      <ng-container *ngFor="let item of menu">
         <li nz-submenu [nzOpen]="item.open" (nzOpenChange)="openHandler(item)">
               <span title>
                 <i class="{{item.class}}"></i>
@@ -17,13 +17,12 @@
               </ng-container>
             </ul>
           </ng-container>
-
         </li>
       </ng-container>
 
     </ul>
   </nz-sider>
-  <nz-content style="padding: 0 24px; min-height: 79vh;">
+  <nz-content style="padding: 0 24px; min-height: 75vh;">
     <router-outlet></router-outlet>
   </nz-content>
 </nz-layout>
