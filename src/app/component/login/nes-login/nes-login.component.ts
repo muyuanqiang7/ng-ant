@@ -22,6 +22,14 @@ export class NesLoginComponent implements OnInit {
     });
   }
 
+  get userName() {
+    return this.validateForm.get('userName');
+  }
+
+  get password() {
+    return this.validateForm.get('password');
+  }
+
   submitForm(): void {
     console.log(this.validateForm.value);
     console.log(this.validateForm.status);
