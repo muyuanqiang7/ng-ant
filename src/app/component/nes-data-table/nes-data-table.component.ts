@@ -45,6 +45,11 @@ export class NesDataTableComponent implements OnInit {
       disabled: true
     }
   ];
+  public options: Object = {
+    placeholderText: 'Edit Your Content Here!',
+    charCounterCount: false,
+    language: 'zh_cn'
+  };
 
   search(searchNameList: string[], searchAddressList: string[]): void {
 

@@ -5,12 +5,12 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class NesMenuPipe implements PipeTransform {
 
-  transform(value: any, arg: any): any {
+  transform(value: any, arg: String): any {
     if (arg != null && arg !== undefined && arg !== '') {
       return value.filter(item => {
         return Object.values(item).find(entry => {
           if (typeof  entry === 'string' || typeof  entry === 'number') {
-            return String(entry).includes(arg);
+            return String(entry).toUpperCase().includes(arg.toUpperCase());
           }
           return entry === arg;
         });
