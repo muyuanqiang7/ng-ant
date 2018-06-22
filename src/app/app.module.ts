@@ -26,6 +26,7 @@ import {NesHorizontalMenuComponent} from './component/nes-horizontal-menu/nes-ho
 import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import {NesMenuPipe} from './pipe/nes-menu.pipe';
 import {NesNoticeEmitterService} from './service/emitter/nes-notice-emitter.service';
+import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 
 registerLocaleData(zh);
 
@@ -55,7 +56,8 @@ registerLocaleData(zh);
     AppRoutingModule,
     AngularDraggableModule,
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    SweetAlert2Module.forRoot()
   ],
   providers: [NesNotificationService, NesPermissionCheckService, NesAuthService, NesAuthGuardGuard, NesNoticeEmitterService],
   bootstrap: [AppComponent]

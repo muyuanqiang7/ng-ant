@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class NesDataTableComponent implements OnInit {
   allChecked = false;
   indeterminate = false;
-  showFilter: true;
+  showFilter = false;
   searchAddressList = [];
   filterNameList = [
     {text: 'Joe', value: 'Joe'},

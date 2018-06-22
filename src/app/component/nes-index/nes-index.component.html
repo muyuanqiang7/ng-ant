@@ -12,7 +12,7 @@
     <nz-tag [nzColor]="'#108ee9'">#108ee9</nz-tag>
   </div>
 </div>
-<div>
+<div nz-row>
   <!--可以自定义添加函数参数-->
   <nz-tag [nzColor]="'#f50'" class="custom-tag" nzMode='default' (nzOnClose)="nzClose($event, false)"
           (nzAfterClose)="nzAfterClose()">权
@@ -20,6 +20,16 @@
   <nz-tag [nzColor]="'#2db7f5'" class="custom-tag">售</nz-tag>
   <nz-tag [nzColor]="'#87d068'" class="custom-tag">抵</nz-tag>
   <nz-tag [nzColor]="'#108ee9'" class="custom-tag">封</nz-tag>
+</div>
+<div nz-row style="margin: 20px auto;">
+  <button nz-button nzType="primary"
+          [swal]="{
+  type: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  footer: '<a href>Why do I have this issue?</a>'
+}">Primary
+  </button>
 </div>
 <!--<div>-->
 <!--<ng-container *ngFor="let item of data">-->
