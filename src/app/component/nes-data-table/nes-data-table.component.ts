@@ -82,11 +82,11 @@ export class NesDataTableComponent implements OnInit {
   ngOnInit() {
   }
 
-  everySecond() {
+  everySecond(event) {
     console.log('second');
   }
 
-  everyFiveSeconds() {
+  everyFiveSeconds(event) {
     console.log('five seconds');
   }
 }
