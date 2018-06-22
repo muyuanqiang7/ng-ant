@@ -27,6 +27,7 @@ import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import {NesMenuPipe} from './pipe/nes-menu.pipe';
 import {NesNoticeEmitterService} from './service/emitter/nes-notice-emitter.service';
 import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
+import { BankAccountDirective } from './directive/bank-account.directive';
 
 registerLocaleData(zh);
 
@@ -44,6 +45,7 @@ registerLocaleData(zh);
     NesDataTableComponent,
     NesHorizontalMenuComponent,
     NesMenuPipe,
+    BankAccountDirective,
   ],
   entryComponents: [NesButtonComponent],
   imports: [
